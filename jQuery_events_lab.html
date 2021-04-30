@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Questions 16-25</title>
+</head>
+
+<body>
+<!-- STEPS 16-18 -->
+<!-- 	<button>Click me (click)</button>
+	<button>Click me (bind)</button>
+	<button>Click me (on)</button>
+ -->
+
+<!-- STEP 19 -->
+<!-- 	<button>Button 1</button>
+	<button>Button 2</button>
+ -->
+<!-- STEP 20 to 24-->
+<!-- 	<div></div>
+	<span></span>
+	<a href="https://modulemedia.com">Link to Module Media</a>
+	<input type="text"> -->
+
+<!-- STEP 25 -->
+	<form>
+		<label for="name">Name</label>
+		<input type="text" id="name" value="Your Name"><br>
+		<label for="email">Email</label>
+		<input type="text" id="email" value="Your Email"><br>
+		<input type="submit" value="Submit">
+
+	</form>
+
+	<script src="js/jquery-3.6.0.js"></script>
+	<script>
+		$(function() {
+			// STEP 16
+			// $("button:nth-of-type(1)").click((e) => {
+			// 	alert("This button was clicked!");
+			// });
+
+			// STEP 17
+			// $("button:nth-of-type(2)").bind('click', (e) => {
+			// 	alert("[Bind] button was clicked!");
+			// });
+
+			// STEP 18
+			// $("button:nth-of-type(3)").on('click', (e) => {
+			// 	alert("[On] button was clicked!");
+			// });
+
+			// STEP 19
+			// $("button").on("click", (e) => {
+			// 	alert("Button 1 or Button 2 clicked.");
+			// });
+
+			// STEP 20
+			// $("div").width("400px")
+			// 		.height("400px")
+			// 		.on("click mouseenter mouseleave", function(e) {
+			// 			alert("div was either clicked on, the mouse entered it, or the mouse left it.");
+			// 		});
+
+			// STEP 21
+			// $("div").width("400px")
+			// 		.height("400px")
+			// 		.css("background-color", "gray")
+			// 		.on({
+			// 			click: (e) => {
+			// 				$('span').text("You clicked.");
+			// 			},
+			// 			mouseenter: (e) => {
+			// 				$('span').text("Your mouse entered the div.");
+			// 			},
+			// 			mouseleave: (e) => {
+			// 				$('span').text("Your mouse left the div.");
+			// 			}
+			// 		});
+
+			// STEP 22
+			// $("a").on("click", (e) => {
+			// 	e.preventDefault();
+			// 	$(this).css("color", "red");							// ?? How to make the red color persist??
+			// 	alert(`The node that triggered this event was: ${e.target.nodeName}.`);
+			// });
+
+			// STEP 23
+			// $(window).resize((e) => {
+			// 	$("div").text(`Width: ${$(this).width()}.\nHeight: ${$(this).height()}.`);
+			// });
+
+			// STEP 24
+			// $(":text").focus(function(e) {
+			// 	$(this).css("background-color", "#BBBBBB");
+			// })
+			// .blur(function(e) {
+			// 		$(this).css("background-color", "#FFFFFF");
+			// });
+			
+			// STEP 25
+			$("form").on('submit', (e) => {
+				let isValid = true;
+				if ($("#name").val() === '') {
+					alert("You must enter your name.");
+					$("#name").css("border", "solid 1px red");
+					isValid = false;
+				} else {
+					$("#name").css("border", "solid 1px green");
+				}
+				if ($("#email").val() === '') {
+					alert("You must enter your email.");
+					$("#email").css("border", "solid 1px red");
+					isValid = false;
+				} else {
+					$("#email").css("border", "solid 1px green");		// ?? How to make the green color persist after submission?
+				}
+				if(!isValid) {
+					e.preventDefault();
+				}
+			});				
+
+		});
+	</script>	
+</body>
+</html>
